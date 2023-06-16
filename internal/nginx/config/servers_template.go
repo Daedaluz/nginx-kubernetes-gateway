@@ -5,12 +5,14 @@ var serversTemplateText = `
 	{{ if $s.IsDefaultSSL -}}
 server {
 	listen 443 ssl default_server;
+    listen [::]:443 ssl default_server;
 
 	ssl_reject_handshake on;
 }
 	{{- else if $s.IsDefaultHTTP }}
 server {
 	listen 80 default_server;
+    listen [::]:80 default_server;
 
 	default_type text/html;
 	return 404;
@@ -19,6 +21,8 @@ server {
 server {
 		{{- if $s.SSL }}
 	listen 443 ssl;
+    listen [::]:443 ssl;
+
 	ssl_certificate {{ $s.SSL.Certificate }};
 	ssl_certificate_key {{ $s.SSL.CertificateKey }};
 

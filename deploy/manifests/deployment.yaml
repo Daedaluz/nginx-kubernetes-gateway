@@ -34,7 +34,7 @@ spec:
         - name: nginx
           mountPath: /etc/nginx
       containers:
-      - image: ghcr.io/nginxinc/nginx-kubernetes-gateway:edge
+      - image: ghcr.io/daedaluz/nginx-kubernetes-gateway:edge
         imagePullPolicy: Always
         name: nginx-gateway
         volumeMounts:

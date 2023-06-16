@@ -6,6 +6,10 @@ metadata:
 spec:
   externalTrafficPolicy: Local
   type: LoadBalancer
+  ipFamilyPolicy: PreferDualStack
+  ipFamilies:
+  - IPv4
+  - IPv6
   ports:
   - port: 80
     targetPort: 80
